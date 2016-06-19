@@ -20,7 +20,7 @@ namespace NFEPlayGround.Modelos {
     }
     [XmlElement("indIEDest")]
     public string xml_indIEDest {
-      get { return _indIEDest.ToString(); }
+      get { return ((int)_indIEDest).ToString(); }
       set { _indIEDest = (IndIEDest) int.Parse(value); }
     }
     [XmlElement("idEstrangeiro")]

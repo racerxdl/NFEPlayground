@@ -29,8 +29,8 @@ namespace NFEPlayGround.Modelos {
     }
     [XmlElement("CRT")]
     public string xml_CRT {
-      get { return _CRT.ToString(); }
-      set { int x = int.Parse(value); _CRT = (CRT)x; }
+      get { return ((int)_CRT).ToString(); }
+      set { _CRT = (CRT)(int.Parse(value)); }
     }
     #endregion
     #region Propriedades do Usuário
