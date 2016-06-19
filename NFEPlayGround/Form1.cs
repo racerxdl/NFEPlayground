@@ -37,12 +37,12 @@ namespace NFEPlayGround {
       //XmlReader nfe = XmlReader.Create("non-valid.xml", nfeSettings);
       while (nfe.Read()) { }
       */
+      InfNFe t = new InfNFe();
 
-      string path = "tests.xml";
-
-      //FileStream fs = new FileStream(path, FileMode.Create);
-      //serializer.Serialize(fs, c);
-      //fs.Close();
+      FileStream f = new FileStream("x.xml", FileMode.Create);
+      NFEDataSerializer s = new NFEDataSerializer(typeof(InfNFe));
+      s.Serialize(f, t);
+      f.Close();
     }
 
     private void nfeSettingsValidationEventHandler(object sender, ValidationEventArgs e) {

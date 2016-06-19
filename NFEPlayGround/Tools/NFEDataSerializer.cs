@@ -14,7 +14,6 @@ namespace NFEPlayGround.Tools {
     private string rootName;
     private XmlSerializer serializer;
     private string xmlns;
-    private string versao;
     private XmlSerializerNamespaces ns;
 
     public NFEDataSerializer(Type dataType) {
@@ -22,6 +21,8 @@ namespace NFEPlayGround.Tools {
       if (nfeData == null) {
         throw new NotNFEDataType("O tipo " + dataType.Name + " não contém o atributo NFEData!");
       }
+      
+      Type[] includeTypes = ((XmlIncludeAttribute[])dataType.GetCustomAttributes(typeof(XmlIncludeAttribute))).Select(a => a.Type).ToArray();
 
       rootName = dataType.Name[0].ToString().ToLower() + dataType.Name.Substring(1);
       xmlns = nfeData.XmlNamespace;
@@ -31,7 +32,8 @@ namespace NFEPlayGround.Tools {
 
       XmlRootAttribute xra = new XmlRootAttribute(rootName);
       xra.Namespace = xmlns;
-      serializer = new XmlSerializer(dataType, xra);
+      
+      serializer = new XmlSerializer(dataType, null, includeTypes, xra, null);
     }
 
     public void Serialize(Stream stream, object o) {

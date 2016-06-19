@@ -9,9 +9,9 @@ namespace NFEPlayGround.Modelos.Tipos {
   public class Pais {
 
     #region Constantes
-    private static readonly Pais Brasil = new Pais("Brasil", "1058");
+    public static readonly Pais Brasil = new Pais("Brasil", "1058");
 
-    private static readonly List<Pais> Paises = new List<Pais>() { Brasil };
+    public static readonly List<Pais> Paises = new List<Pais>() { Brasil };
     #endregion
     #region Internos
     private string nome;
@@ -33,7 +33,7 @@ namespace NFEPlayGround.Modelos.Tipos {
       get { return codigo; }
       set { codigo = value; }
     }
-    #region
+    #endregion
     #region Métodos
     /// <summary>
     /// Procura um País usando o seu nome

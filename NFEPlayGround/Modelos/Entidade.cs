@@ -4,19 +4,21 @@ using System;
 using System.Xml.Serialization;
 
 namespace NFEPlayGround.Modelos {
-  [NFEData, Serializable]
+  /// <summary>
+  /// Identificação do Destinatário
+  /// </summary>
+  [Serializable]
+  [XmlInclude(typeof(Emitente))]
+  [XmlInclude(typeof(Destinatario))]
   public class Entidade: XmlConvertible {
     #region Internos
-    private string _CNPJ;
-    private string _CPF;
-    private string _xNome;
-    private string _xFant;
-    private Endereco _end;
-    private string _IE;
-    private string _IEST;
-    private string _IM;
-    private string _CNAE;
-    private CRT _CRT;
+    protected string _CNPJ;
+    protected string _CPF;
+    protected string _xNome;
+    protected string _xFant;
+    protected Endereco _end;
+    protected string _IE;
+    protected string _IM;
     #endregion
     #region Propriedades do XML
     [XmlElement("CNPJ")]
@@ -39,48 +41,37 @@ namespace NFEPlayGround.Modelos {
       get { return _xFant; }
       set { _xFant = value; }
     }
-    [XmlElement("end")]
-    public Endereco xml_end {
-      get { return _end; }
-      set { _end = value; }
-    }
     [XmlElement("IE")]
     public string xml_IE {
       get { return _IE; }
       set { _IE = value; }
-    }
-    [XmlElement("IEST")]
-    public string xml_IEST {
-      get { return _IEST; }
-      set { _IEST = value; }
     }
     [XmlElement("IM")]
     public string xml_IM {
       get { return _IM; }
       set { _IM = value; }
     }
-    [XmlElement("CNAE")]
-    public string xml_CNAE {
-      get { return _CNAE; }
-      set { _CNAE = value; }
-    }
-    [XmlElement("CRT")]
-    public string xml_CRT {
-      get { return _CRT.ToString(); }
-      set { int x = int.Parse(value); _CRT = (CRT)x; }
-    }
     #endregion
     #region Propriedades do usuario
+    /// <summary>
+    /// Número do CNPJ
+    /// </summary>
     [XmlIgnore]
     public string CNPJ {
       get { return _CNPJ; }
       set { _CNPJ = value; }
     }
+    /// <summary>
+    /// Número do CPF
+    /// </summary>
     [XmlIgnore]
     public string CPF {
       get { return _CPF; }
       set { _CPF = value; }
     }
+    /// <summary>
+    /// Razão Social ou nome do destinatário
+    /// </summary>
     [XmlIgnore]
     public string Nome {
       get { return _xNome; }
@@ -91,35 +82,29 @@ namespace NFEPlayGround.Modelos {
       get { return _xFant; }
       set { _xFant = value; }
     }
+    /// <summary>
+    /// Dados do endereço
+    /// </summary>
     [XmlIgnore]
     public Endereco Endereco {
       get { return _end; }
       set { _end = value; }
     }
+    /// <summary>
+    /// Inscrição Estadual (obrigatório nas operações com contribuintes do ICMS)
+    /// </summary>
     [XmlIgnore]
     public string IE {
       get { return _IE; }
       set { _IE = value; }
     }
-    [XmlIgnore]
-    public string IEST {
-      get { return _IEST; }
-      set { _IEST = value; }
-    }
+    /// <summary>
+    /// Inscrição Municipal
+    /// </summary>
     [XmlIgnore]
     public string IM {
       get { return _IM; }
       set { _IM = value; }
-    }
-    [XmlIgnore]
-    public string CNAE {
-      get { return _CNAE; }
-      set { _CNAE = value; }
-    }
-    [XmlIgnore]
-    public CRT CRT {
-      get { return _CRT; }
-      set {  _CRT = value; }
     }
     #endregion
     #region Construtores

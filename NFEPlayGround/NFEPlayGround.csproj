@@ -55,8 +55,29 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\ConsStatServ.cs" />
+    <Compile Include="Modelos\Destinatario.cs" />
+    <Compile Include="Modelos\Emitente.cs" />
+    <Compile Include="Modelos\Endereco.cs" />
+    <Compile Include="Modelos\Entidade.cs" />
+    <Compile Include="Modelos\IdeNFe.cs" />
+    <Compile Include="Modelos\InfNFe.cs" />
+    <Compile Include="Modelos\Template.cs" />
+    <Compile Include="Modelos\Tipos\CRT.cs" />
     <Compile Include="Modelos\Tipos\CStat.cs" />
+    <Compile Include="Modelos\Tipos\Finalidade.cs" />
+    <Compile Include="Modelos\Tipos\FormaEmissao.cs" />
+    <Compile Include="Modelos\Tipos\FormatoDANFE.cs" />
+    <Compile Include="Modelos\Tipos\IdDest.cs" />
+    <Compile Include="Modelos\Tipos\IndicaOperacao.cs" />
+    <Compile Include="Modelos\Tipos\IndicaPresenca.cs" />
+    <Compile Include="Modelos\Tipos\IndIEDest.cs" />
+    <Compile Include="Modelos\Tipos\IndPag.cs" />
+    <Compile Include="Modelos\Tipos\ModeloFiscal.cs" />
+    <Compile Include="Modelos\Tipos\Municipio.cs" />
+    <Compile Include="Modelos\Tipos\Pais.cs" />
+    <Compile Include="Modelos\Tipos\ProcessoEmissao.cs" />
     <Compile Include="Modelos\Tipos\TipoAmbiente.cs" />
+    <Compile Include="Modelos\Tipos\TipoNota.cs" />
     <Compile Include="Modelos\Tipos\UnidadeFederativa.cs" />
     <Compile Include="Modelos\Tipos\XmlConvertible.cs" />
     <Compile Include="Program.cs" />

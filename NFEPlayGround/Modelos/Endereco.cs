@@ -18,52 +18,52 @@ namespace NFEPlayGround.Modelos {
     #endregion
     #region Propriedades do XML
     [XmlElement("xLgr")]
-    private string xml_xLgr {
+    public string xml_xLgr {
       get { return _xLgr; }
       set { _xLgr = value; }
     }
     [XmlElement("nro")]
-    private string xml_nro {
+    public string xml_nro {
       get { return _nro; }
       set { _nro = value; }
     }
     [XmlElement("xBairro")]
-    private string xml_xBairro {
+    public string xml_xBairro {
       get { return _xBairro; }
       set { _xBairro = value; }
     }
     [XmlElement("cMun")]
-    private string xml_cMun {
+    public string xml_cMun {
       get { return _municipio.Codigo; }
       set { _municipio = Municipio.fromCodigo(value); }
     }
     [XmlElement("xMun")]
-    private string xml_xMun {
+    public string xml_xMun {
       get { return _municipio.Nome; }
       set { _municipio = Municipio.fromNome(value); }
     }
     [XmlElement("UF")]
-    private string xml_UF {
+    public string xml_UF {
       get { return _UF.UF; }
       set { _UF = UnidadeFederativa.fromUF(value); }
     }
     [XmlElement("CEP")]
-    private string xml_CEP {
+    public string xml_CEP {
       get { return _CEP; }
       set { _CEP = value; }
     }
     [XmlElement("cPais")]
-    private string xml_cPais {
+    public string xml_cPais {
       get { return _pais.Codigo; }
       set { _pais = Pais.fromCodigo(value); }
     }
     [XmlElement("xPais")]
-    private string xml_xPais {
+    public string xml_xPais {
       get { return _pais.Nome; }
       set { _pais = Pais.fromNome(value); }
     }
     [XmlElement("fone")]
-    private string xml_fone {
+    public string xml_fone {
       get { return _fone; }
       set { _fone = value; }
     }
@@ -95,7 +95,7 @@ namespace NFEPlayGround.Modelos {
       set { _UF = value; }
     }
     [XmlIgnore]
-    private string CEP {
+    public string CEP {
       get { return _CEP; }
       set { _CEP = value; }
     }
@@ -104,6 +104,7 @@ namespace NFEPlayGround.Modelos {
       get { return _pais; }
       set { _pais = value; }
     }
+    [XmlIgnore]
     public string Telefone {
       get { return _fone; }
       set { _fone = value; }
