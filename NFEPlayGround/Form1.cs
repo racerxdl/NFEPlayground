@@ -1,5 +1,6 @@
 ﻿using NFEPlayGround.Modelos;
 using NFEPlayGround.Modelos.Tipos;
+using NFEPlayGround.Servicos;
 using NFEPlayGround.Tools;
 using System;
 using System.Collections.Generic;
@@ -58,6 +59,12 @@ namespace NFEPlayGround {
       X509Store store = new X509Store("My", StoreLocation.CurrentUser);
       store.Open(OpenFlags.ReadOnly);
       X509Certificate2Collection certificates = store.Certificates.Find(X509FindType.FindBySerialNumber, "79B3C9920D2A6289", true);
+      NFEStatus statusService = new NFEStatus(this, certificates[0]);
+
+      statusService.checkStatus((status) => {
+        textBox1.AppendText("Status: " + status.ToString() + "\n");
+      });
+      /*
       NFESoapWebRequest request = new NFESoapWebRequest(this, @"https://homologacao.nfe.fazenda.sp.gov.br/ws/nfestatusservico2.asmx?op=nfeStatusServicoNF2", certificates[0]);
 
       request.OnResponse += (sender, e) => {
@@ -84,7 +91,7 @@ namespace NFEPlayGround {
       NFEDataSerializer serializer = new NFEDataSerializer(typeof(ConsStatServ));
       XmlDocument xm = serializer.toXml(c);
 
-      request.run("http://www.portalfiscal.inf.br/nfe/wsdl/NfeStatusServico2", UnidadeFederativa.SaoPaulo, "3.10", xm);
+      request.run("http://www.portalfiscal.inf.br/nfe/wsdl/NfeStatusServico2", UnidadeFederativa.SaoPaulo, "3.10", xm);*/
     }
 
     private void button2_Click(object sender, EventArgs e) {

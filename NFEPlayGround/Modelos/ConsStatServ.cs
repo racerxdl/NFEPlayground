@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace NFEPlayGround.Modelos {
   [NFEData, Serializable]
-  public class ConsStatServ {
+  public class ConsStatServ: XmlConvertible {
     #region Internos
     private TipoAmbiente _tpAmb;
     private UnidadeFederativa _cUF;

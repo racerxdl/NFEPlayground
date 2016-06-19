@@ -55,10 +55,14 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\ConsStatServ.cs" />
+    <Compile Include="Modelos\Tipos\CStat.cs" />
     <Compile Include="Modelos\Tipos\TipoAmbiente.cs" />
     <Compile Include="Modelos\Tipos\UnidadeFederativa.cs" />
+    <Compile Include="Modelos\Tipos\XmlConvertible.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos\Global.cs" />
+    <Compile Include="Servicos\NFEStatus.cs" />
     <Compile Include="TestXML.cs" />
     <Compile Include="Tools\NFEDataSerializer.cs" />
     <Compile Include="Tools\SoapWebRequest.cs" />
@@ -344,15 +348,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="non-valid.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="valid.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
