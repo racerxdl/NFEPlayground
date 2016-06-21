@@ -32,6 +32,11 @@ namespace NFEPlayGround.Tools {
       bw.DoWork += new DoWorkEventHandler(
         delegate (object o, DoWorkEventArgs args) {
           XmlDocument soapEnvelopeXml = SoapXmlBuilder.buildSoapXml(xmlns, uf, versao, body);
+          StringBuilder sb = new StringBuilder();
+          XmlWriter tw = XmlWriter.Create(sb, new XmlWriterSettings() { Indent = true });
+          soapEnvelopeXml.Save(tw);
+          Console.WriteLine("Sending: " + sb.ToString());
+
           using (Stream stream = webRequest.GetRequestStream()) {
             XmlTextWriter wr = new XmlTextWriter(stream, Encoding.UTF8);
             soapEnvelopeXml.Save(wr);

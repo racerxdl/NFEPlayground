@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NFEPlayGround.Servicos {
   public static class Global {
-    public static TipoAmbiente TipoAmbiente = TipoAmbiente.Homologacao;
+    public static TipoAmbiente TipoAmbiente = TipoAmbiente.Producao;
     public static UnidadeFederativa UFServidor = UnidadeFederativa.SaoPaulo;
   }
 }

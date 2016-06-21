@@ -54,6 +54,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\ConsSitNFe.cs" />
     <Compile Include="Modelos\ConsStatServ.cs" />
     <Compile Include="Modelos\Destinatario.cs" />
     <Compile Include="Modelos\Emitente.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicos\Global.cs" />
+    <Compile Include="Servicos\NFEConsulta.cs" />
     <Compile Include="Servicos\NFEStatus.cs" />
     <Compile Include="TestXML.cs" />
     <Compile Include="Tools\NFEDataSerializer.cs" />
