@@ -65,6 +65,8 @@
     <Compile Include="Modelos\FCINFe.cs" />
     <Compile Include="Modelos\IdeNFe.cs" />
     <Compile Include="Modelos\Impostos\ICMS\ICMS.cs" />
+    <Compile Include="Modelos\Impostos\ICMS\ICMS30.cs" />
+    <Compile Include="Modelos\Impostos\ICMS\ICMS20.cs" />
     <Compile Include="Modelos\Impostos\ICMS\ICMS10.cs" />
     <Compile Include="Modelos\Impostos\ICMS\ICMS00.cs" />
     <Compile Include="Modelos\Impostos\ImpostoNFe.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Modelos\Tipos\Finalidade.cs" />
     <Compile Include="Modelos\Tipos\FormaEmissao.cs" />
     <Compile Include="Modelos\Tipos\FormatoDANFE.cs" />
+    <Compile Include="Modelos\Tipos\ICMSDeson.cs" />
     <Compile Include="Modelos\Tipos\IdDest.cs" />
     <Compile Include="Modelos\Tipos\IndicaOperacao.cs" />
     <Compile Include="Modelos\Tipos\IndicaPresenca.cs" />

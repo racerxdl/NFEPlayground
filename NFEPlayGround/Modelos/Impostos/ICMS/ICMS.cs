@@ -1,10 +1,6 @@
 ﻿using NFEPlayGround.Atributos;
 using NFEPlayGround.Modelos.Tipos;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace NFEPlayGround.Modelos.Impostos.ICMS {
@@ -17,6 +13,8 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     #region Internos
     private ICMS00 _ICMS00;
     private ICMS10 _ICMS10;
+    private ICMS20 _ICMS20;
+    private ICMS30 _ICMS30;
     #endregion
     #region Propriedades do XML
     [XmlElement("ICMS00")]
@@ -28,6 +26,16 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     public ICMS10 xml_ICMS10 {
       get { return _ICMS10; }
       set { _ICMS10 = value; }
+    }
+    [XmlElement("ICMS20")]
+    public ICMS20 xml_ICMS20 {
+      get { return _ICMS20; }
+      set { _ICMS20 = value; }
+    }
+    [XmlElement("ICMS30")]
+    public ICMS30 xml_ICMS30 {
+      get { return _ICMS30; }
+      set { _ICMS30 = value; }
     }
     #endregion
     #region Propriedades do usuario
@@ -46,6 +54,22 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     public ICMS10 ICMS10 {
       get { return _ICMS10; }
       set { _ICMS10 = value; }
+    }
+    /// <summary>
+    /// Tributção pelo ICMS20 - Com redução de base de cálculo
+    /// </summary>
+    [XmlIgnore]
+    public ICMS20 ICMS20 {
+      get { return _ICMS20; }
+      set { _ICMS20 = value; }
+    }
+    /// <summary>
+    /// Tributação pelo ICMS30 - Isenta ou não tributada e com cobrança do ICMS por substituição tributária
+    /// </summary>
+    [XmlIgnore]
+    public ICMS30 ICMS30 {
+      get { return _ICMS30; }
+      set { _ICMS30 = value; }
     }
     #endregion
     #region Construtores
