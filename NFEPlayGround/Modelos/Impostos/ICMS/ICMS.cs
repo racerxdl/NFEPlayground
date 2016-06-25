@@ -15,6 +15,8 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     private ICMS10 _ICMS10;
     private ICMS20 _ICMS20;
     private ICMS30 _ICMS30;
+    private ICMS40 _ICMS40;
+    private ICMS51 _ICMS51;
     #endregion
     #region Propriedades do XML
     [XmlElement("ICMS00")]
@@ -70,6 +72,22 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     public ICMS30 ICMS30 {
       get { return _ICMS30; }
       set { _ICMS30 = value; }
+    }
+    /// <summary>
+    /// Tributação pelo ICMS40 - Isenta
+    /// </summary>
+    [XmlIgnore]
+    public ICMS40 ICMS40 {
+      get { return _ICMS40; }
+      set { _ICMS40 = value; }
+    }
+    /// <summary>
+    /// Tributação pelo ICMS51 - Diferimento
+    /// </summary>
+    [XmlIgnore]
+    public ICMS51 ICMS51 {
+      get { return _ICMS51; }
+      set { _ICMS51 = value; }
     }
     #endregion
     #region Construtores

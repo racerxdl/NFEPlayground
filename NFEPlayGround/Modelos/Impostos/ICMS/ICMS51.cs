@@ -6,20 +6,22 @@ using System.Xml.Serialization;
 
 namespace NFEPlayGround.Modelos.Impostos.ICMS {
   /// <summary>
-  /// Tributção pelo ICMS20 - Com redução de base de cálculo
+  /// Tributção pelo ICMS51 - Diferimento
+  /// <para>A exigência do preenchimento das informações do ICMS diferido fica à critério de cada UF</para>
   /// </summary>
   [NFEData, Serializable]
-  public class ICMS20 {
+  public class ICMS51 {
     #region Internos
     private Origem _orig;
-    private string _CST = "20";
+    private string _CST = "51";
     private ModBC _modBC;
     private decimal _pRedBC; // 3i 2d
     private decimal _vBC; // 13i 2d
     private decimal _pICMS; // 3i 2d
+    private decimal _vICMSOp; // 13i 2d
+    private decimal _pDif; // 3i 2d
+    private decimal _vICMSDif; // 13i 2d
     private decimal _vICMS; // 13i 2d
-    private decimal _vICMSDeson; // 13i 2d
-    private MotDesICMS _motDesICMS;
     #endregion
     #region Propriedades do XML
     [XmlElement("orig")]
@@ -47,10 +49,20 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
       get { return TextTools.Dec2Str(_vBC, 2); }
       set { _vBC = TextTools.Str2Dec(value); }
     }
-    [XmlElement("pICMS")]
-    public string xml_pICMS {
-      get { return TextTools.Dec2Str(_pICMS, 2); }
-      set { _pICMS = TextTools.Str2Dec(value); }
+    [XmlElement("vICMSOp")]
+    public string xml_vICMSOp {
+      get { return TextTools.Dec2Str(_vICMSOp, 2); }
+      set { _vICMSOp = TextTools.Str2Dec(value); }
+    }
+    [XmlElement("pDif")]
+    public string xml_pDif {
+      get { return TextTools.Dec2Str(_pDif, 2); }
+      set { _pDif = TextTools.Str2Dec(value); }
+    }
+    [XmlElement("vICMSDif")]
+    public string xml_vICMSDif {
+      get { return TextTools.Dec2Str(_vICMSDif, 2); }
+      set { _vICMSDif = TextTools.Str2Dec(value); }
     }
     [XmlElement("vICMS")]
     public string xml_vICMS {
@@ -100,6 +112,30 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
       set { _pICMS = value; }
     }
     /// <summary>
+    /// Valor do ICMS da Operação
+    /// </summary>
+    [XmlIgnore]
+    public decimal ValorOperacao {
+      get { return _vICMSOp; }
+      set { _vICMSOp = value; }
+    }
+    /// <summary>
+    /// Percentual do diferemento
+    /// </summary>
+    [XmlIgnore]
+    public decimal PercentualDiferimento {
+      get { return _pDif; }
+      set { _pDif = value; }
+    }
+    /// <summary>
+    /// Valor do ICMS da diferido
+    /// </summary>
+    [XmlIgnore]
+    public decimal ValorDiferido {
+      get { return _vICMSDif; }
+      set { _vICMSDif = value; }
+    }
+    /// <summary>
     /// Valor do ICMS
     /// </summary>
     [XmlIgnore]
@@ -115,25 +151,9 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
       get { return _pRedBC; }
       set { _pRedBC = value; }
     }
-    /// <summary>
-    /// Valor do ICMS de desoneração
-    /// </summary>
-    [XmlIgnore]
-    public decimal ValorDesoneracao {
-      get { return _vICMSDeson; }
-      set { _vICMSDeson = value; }
-    }
-    /// <summary>
-    /// Percentual de redução da BC ICMS ST
-    /// </summary>
-    [XmlIgnore]
-    public MotDesICMS MotivoDesoneracao {
-      get { return _motDesICMS; }
-      set { _motDesICMS = value; }
-    }
     #endregion
     #region Construtores
-    public ICMS20() {
+    public ICMS51() {
 
     }
     #endregion

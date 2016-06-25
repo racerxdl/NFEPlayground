@@ -12,7 +12,7 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
   public class ICMS30 {
     #region Internos
     private Origem _orig;
-    private string _CST = "10";
+    private string _CST = "30";
     private ModBCST _modBCST;
     private decimal _pMVAST; // 3i 2d
     private decimal _pRedBCST; // 3i 2d
@@ -157,7 +157,7 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     }
     #endregion
     #region Construtores
-    public ICMS10() {
+    public ICMS30() {
 
     }
     #endregion
