@@ -65,6 +65,10 @@
     <Compile Include="Modelos\FCINFe.cs" />
     <Compile Include="Modelos\IdeNFe.cs" />
     <Compile Include="Modelos\Impostos\ICMS\ICMS.cs" />
+    <Compile Include="Modelos\Impostos\ICMS\ICMSPart.cs" />
+    <Compile Include="Modelos\Impostos\ICMS\ICMS90.cs" />
+    <Compile Include="Modelos\Impostos\ICMS\ICMS70.cs" />
+    <Compile Include="Modelos\Impostos\ICMS\ICMS60.cs" />
     <Compile Include="Modelos\Impostos\ICMS\ICMS51.cs" />
     <Compile Include="Modelos\Impostos\ICMS\ICMS40.cs" />
     <Compile Include="Modelos\Impostos\ICMS\ICMS30.cs" />

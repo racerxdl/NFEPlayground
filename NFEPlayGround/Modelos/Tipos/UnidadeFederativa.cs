@@ -93,15 +93,24 @@ namespace NFEPlayGround.Modelos.Tipos {
     private UnidadeFederativa() {
 
     }
-
+    /// <summary>
+    /// Nome da Unidade Federativa
+    /// <para>Ex: São Paulo</para>
+    /// </summary>
     public string Nome {
       get { return nome; }
     }
-
+    /// <summary>
+    /// Sigla da Unidade Federativa.
+    /// <para>Ex: SP</para>
+    /// </summary>
     public string UF {
       get { return uf; }
     }
-
+    /// <summary>
+    /// Código da Unidade Federativa
+    /// <para>Ex: 35</para>
+    /// </summary>
     public int cUF {
       get { return _cUF; }
     }

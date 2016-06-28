@@ -17,6 +17,10 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     private ICMS30 _ICMS30;
     private ICMS40 _ICMS40;
     private ICMS51 _ICMS51;
+    private ICMS60 _ICMS60;
+    private ICMS70 _ICMS70;
+    private ICMS90 _ICMS90;
+    private ICMSPart _ICMSPart;
     #endregion
     #region Propriedades do XML
     [XmlElement("ICMS00")]

@@ -6,15 +6,15 @@ using System.Xml.Serialization;
 
 namespace NFEPlayGround.Modelos.Impostos.ICMS {
   /// <summary>
-  /// Tributação pelo ICMS40 - Isenta
+  /// Tributação pelo ICMS60 - ICMS cobrado anteriormente por substituição tributária
   /// </summary>
   [NFEData, Serializable]
-  public class ICMS40 {
+  public class ICMS60 {
     #region Internos
     private Origem _orig;
-    private string _CST = "40";
-    private decimal _vICMSDeson; // 13i 2d
-    private MotDesICMS _motDesICMS;
+    private string _CST = "60";
+    private decimal _vBCSTRet; // 13i 2d
+    private decimal _vICMSSTRet; // 13i 2d
     #endregion
     #region Propriedades do XML
     [XmlElement("orig")]
@@ -27,15 +27,15 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
       get { return _CST; }
       set { _CST = value; }
     }
-    [XmlElement("vICMSDeson")]
-    public string xml_vICMSDeson {
-      get { return TextTools.Dec2Str(_vICMSDeson, 2); }
-      set { _vICMSDeson = TextTools.Str2Dec(value); }
+    [XmlElement("vBCSTRet")]
+    public string xml_vBCSTRet {
+      get { return TextTools.Dec2Str(_vBCSTRet, 2); }
+      set { _vBCSTRet = TextTools.Str2Dec(value); }
     }
-    [XmlElement("motDesICMS")]
-    public MotDesICMS xml_motDesICMS {
-      get { return _motDesICMS; }
-      set { _motDesICMS = value; }
+    [XmlElement("vICMSSTRet")]
+    public string xml_vICMSOp {
+      get { return TextTools.Dec2Str(_vICMSSTRet, 2); }
+      set { _vICMSSTRet = TextTools.Str2Dec(value); }
     }
     #endregion
     #region Propriedades do usuario
@@ -48,10 +48,7 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
       set { _orig = value; }
     }
     /// <summary>
-    /// Código de Substituição Tributária:
-    /// <para>40 - Isenta</para> 
-    /// <para>41 - Não tributada</para>
-    /// <para>50 - Suspensão</para>
+    /// Código de Substituição Tributária
     /// </summary>
     [XmlIgnore]
     public string CST {
@@ -59,24 +56,24 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
       set { _CST = value; }
     }
     /// <summary>
-    /// Valor do ICMS de desoneração
+    /// Valor da BC do ICMS ST retido anteriormente
     /// </summary>
     [XmlIgnore]
-    public decimal ValorDesoneracao {
-      get { return _vICMSDeson; }
-      set { _vICMSDeson = value; }
+    public decimal ValorBaseCalculoSTRetido {
+      get { return _vBCSTRet; }
+      set { _vBCSTRet = value; }
     }
     /// <summary>
-    /// Motivo da desoneração do ICMS
+    /// Valor do ICMS ST retido anteriormente
     /// </summary>
     [XmlIgnore]
-    public MotDesICMS MotivoDesoneracao {
-      get { return _motDesICMS; }
-      set { _motDesICMS = value; }
+    public decimal ValorSTRetido {
+      get { return _vICMSSTRet; }
+      set { _vICMSSTRet = value; }
     }
     #endregion
     #region Construtores
-    public ICMS40() {
+    public ICMS60() {
 
     }
     #endregion
