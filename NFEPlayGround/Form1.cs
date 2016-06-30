@@ -32,7 +32,7 @@ namespace NFEPlayGround {
       nfeSettings.Schemas.Add("http://www.portalfiscal.inf.br/nfe", "schemas/consSitNFe_v3.10.xsd");
       nfeSettings.ValidationType = ValidationType.Schema;
       nfeSettings.ValidationEventHandler += new ValidationEventHandler(nfeSettingsValidationEventHandler);
-
+      /*
       ConsSitNFe c = new ConsSitNFe(Global.TipoAmbiente, "35160310242235000143550010000003761000003764");
       StringBuilder sb = new StringBuilder();
       XmlWriter writer = XmlWriter.Create(sb, new XmlWriterSettings() { Indent = true });
@@ -40,7 +40,7 @@ namespace NFEPlayGround {
 
       XmlReader nfe = XmlTextReader.Create(new System.IO.StringReader(sb.ToString()), nfeSettings);
       //XmlReader nfe = XmlReader.Create("non-valid.xml", nfeSettings);
-      while (nfe.Read()) { }
+      while (nfe.Read()) { }*/
       //*/
       /*
       InfNFe t = new InfNFe();

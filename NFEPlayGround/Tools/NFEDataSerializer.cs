@@ -15,25 +15,43 @@ namespace NFEPlayGround.Tools {
     private XmlSerializer serializer;
     private string xmlns;
     private XmlSerializerNamespaces ns;
+    //private Type[] includeTypes;
 
     public NFEDataSerializer(Type dataType) {
       NFEDataAttribute nfeData = (NFEDataAttribute) dataType.GetCustomAttribute(typeof(NFEDataAttribute));
       if (nfeData == null) {
         throw new NotNFEDataType("O tipo " + dataType.Name + " não contém o atributo NFEData!");
       }
-      
-      Type[] includeTypes = ((XmlIncludeAttribute[])dataType.GetCustomAttributes(typeof(XmlIncludeAttribute))).Select(a => a.Type).ToArray();
 
+      //Type[] includeTypes = ((XmlIncludeAttribute[])dataType.GetCustomAttributes(typeof(XmlIncludeAttribute))).Select(a => a.Type).ToArray();
+      //includeTypes = lookForTypes(dataType);
+      
       rootName = dataType.Name[0].ToString().ToLower() + dataType.Name.Substring(1);
       xmlns = nfeData.XmlNamespace;
 
       ns = new XmlSerializerNamespaces();
-      ns.Add("", xmlns);
+      ns.Add(string.Empty, xmlns);
 
       XmlRootAttribute xra = new XmlRootAttribute(rootName);
       xra.Namespace = xmlns;
-      
-      serializer = new XmlSerializer(dataType, null, includeTypes, xra, null);
+
+      serializer = new XmlSerializer(dataType, null, null, xra, xmlns);
+    }
+
+    private static Type[] lookForTypes(Type t) {
+      List<Type> types = new List<Type>();
+
+      types.AddRange(getXmlIncludeAttributes(t));
+
+      t.GetProperties().Where(a => Attribute.IsDefined(a, typeof(XmlElementAttribute))).ToList().ForEach(p => {
+        types.AddRange(lookForTypes(p.GetType()));
+      });
+
+      return types.ToArray();
+    }
+
+    private static List<Type> getXmlIncludeAttributes(Type t) {
+      return ((XmlIncludeAttribute[])t.GetCustomAttributes(typeof(XmlIncludeAttribute))).Select(a => a.Type).ToList();
     }
 
     public void Serialize(Stream stream, object o) {

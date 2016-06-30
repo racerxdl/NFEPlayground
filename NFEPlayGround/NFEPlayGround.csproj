@@ -65,6 +65,13 @@
     <Compile Include="Modelos\FCINFe.cs" />
     <Compile Include="Modelos\IdeNFe.cs" />
     <Compile Include="Modelos\Impostos\ICMS\ICMS.cs" />
+    <Compile Include="Modelos\Impostos\ICMS\ICMSSN900.cs" />
+    <Compile Include="Modelos\Impostos\ICMS\ICMSSN500.cs" />
+    <Compile Include="Modelos\Impostos\ICMS\ICMSSN202.cs" />
+    <Compile Include="Modelos\Impostos\ICMS\ICMSSN201.cs" />
+    <Compile Include="Modelos\Impostos\ICMS\ICMSSN102.cs" />
+    <Compile Include="Modelos\Impostos\ICMS\ICMSSN101.cs" />
+    <Compile Include="Modelos\Impostos\ICMS\ICMSST.cs" />
     <Compile Include="Modelos\Impostos\ICMS\ICMSPart.cs" />
     <Compile Include="Modelos\Impostos\ICMS\ICMS90.cs" />
     <Compile Include="Modelos\Impostos\ICMS\ICMS70.cs" />
@@ -81,6 +88,7 @@
     <Compile Include="Modelos\ProdNFe.cs" />
     <Compile Include="Modelos\Template.cs" />
     <Compile Include="Modelos\Tipos\CRT.cs" />
+    <Compile Include="Modelos\Tipos\CSOSN.cs" />
     <Compile Include="Modelos\Tipos\CStat.cs" />
     <Compile Include="Modelos\Tipos\Finalidade.cs" />
     <Compile Include="Modelos\Tipos\FormaEmissao.cs" />

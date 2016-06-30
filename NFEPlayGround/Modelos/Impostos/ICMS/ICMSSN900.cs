@@ -6,16 +6,13 @@ using System.Xml.Serialization;
 
 namespace NFEPlayGround.Modelos.Impostos.ICMS {
   /// <summary>
-  /// Partilha do ICMS entre a UF de origem e UF de destino ou a UF definida na legislação
-  /// <para>Operação interestadual para consumidor final com partilha do ICMS devido na 
-  /// operação entre a UF de origem e a UF do destinatário ou ou a UF definida na legislação. 
-  /// (Ex.UF da concessionária de entrega do  veículos)</para>
+  /// Tributação do ICMS pelo SIMPLES NACIONAL, CRT=1 – Simples Nacional e CSOSN=900 (v2.0)
   /// </summary>
   [NFEData, Serializable]
-  public class ICMSPart {
+  public class ICMSSN900 {
     #region Internos
     private Origem _orig;
-    private string _CST = "90";
+    private string _CSOSN = "900";
     private ModBC _modBC;
     private decimal _vBC; // 13i 2d
     private decimal _pRedBC; // 3i 2d
@@ -27,8 +24,8 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     private decimal _vBCST; // 13i 2d
     private decimal _pICMSST; // 3i 2d
     private decimal _vICMSST; // 13i 2d
-    private decimal _pBCOp; // 3i 2d
-    private UnidadeFederativa _UFST;
+    private decimal _pCredSN; // 3i 2d
+    private decimal _vCredICMSSN; // 13i 2d
     #endregion
     #region Propriedades do XML
     [XmlElement("orig")]
@@ -36,10 +33,15 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
       get { return (int)_orig; }
       set { _orig = (Origem)value; }
     }
-    [XmlElement("CST")]
-    public string xml_CST {
-      get { return _CST; }
-      set { _CST = value; }
+    [XmlElement("CSOSN")]
+    public string xml_CSOSN {
+      get { return _CSOSN; }
+      set { _CSOSN = value; }
+    }
+    [XmlElement("pRedBC")]
+    public string xml_pRedBC {
+      get { return TextTools.Dec2Str(_pRedBC, 2); }
+      set { _pRedBC = TextTools.Str2Dec(value); }
     }
     [XmlElement("modBC")]
     public int xml_modBC {
@@ -50,11 +52,6 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     public string xml_vBC {
       get { return TextTools.Dec2Str(_vBC, 2); }
       set { _vBC = TextTools.Str2Dec(value); }
-    }
-    [XmlElement("pRedBC")]
-    public string xml_pRedBC {
-      get { return TextTools.Dec2Str(_pRedBC, 2); }
-      set { _pRedBC = TextTools.Str2Dec(value); }
     }
     [XmlElement("vICMS")]
     public string xml_vICMSOp {
@@ -69,7 +66,7 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     [XmlElement("modBCST")]
     public int xml_modBCST {
       get { return (int)_modBCST; }
-      set { _modBCST = (ModBCST)(value); }
+      set { _modBCST = (ModBCST)value; }
     }
     [XmlElement("pMVAST")]
     public string xml_pMVAST {
@@ -96,15 +93,15 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
       get { return TextTools.Dec2Str(_vICMSST, 2); }
       set { _vICMSST = TextTools.Str2Dec(value); }
     }
-    [XmlElement("pBCOp")]
-    public string xml_vICMSDeson {
-      get { return TextTools.Dec2Str(_pBCOp, 2); }
-      set { _pBCOp = TextTools.Str2Dec(value); }
+    [XmlElement("pCredSN")]
+    public string xml_pCredSN {
+      get { return TextTools.Dec2Str(_pCredSN, 2); }
+      set { _pCredSN = TextTools.Str2Dec(value); }
     }
-    [XmlElement("UFST")]
-    public string xml_UFST {
-      get { return _UFST.UF; }
-      set { _UFST = UnidadeFederativa.fromUF(value); }
+    [XmlElement("vCredICMSSN")]
+    public string xml_vCredICMSSN {
+      get { return TextTools.Dec2Str(_vCredICMSSN, 2); }
+      set { _vCredICMSSN = TextTools.Str2Dec(value); }
     }
     #endregion
     #region Propriedades do usuario
@@ -115,14 +112,6 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     public Origem Origem {
       get { return _orig; }
       set { _orig = value; }
-    }
-    /// <summary>
-    /// Código de Substituição Tributária
-    /// </summary>
-    [XmlIgnore]
-    public string CST {
-      get { return _CST; }
-      set { _CST = value; }
     }
     /// <summary>
     /// Modalidade de determinação da BC do ICMS
@@ -213,24 +202,24 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
       set { _vICMSST = value; }
     }
     /// <summary>
-    /// Percentual para determinação do valor  da Base de Cálculo da operação própria.
+    /// Alíquota aplicável de cálculo do crédito (Simples Nacional). (v2.0)
     /// </summary>
     [XmlIgnore]
-    public decimal PercentualBaseCalculoOperacaoPropria {
-      get { return _pBCOp; }
-      set { _pBCOp = value; }
+    public decimal Aliquota {
+      get { return _pCredSN; }
+      set { _pCredSN = value; }
     }
     /// <summary>
-    /// UF para qual é devido o ICMS ST da operação.
+    /// Valor crédito do ICMS que pode ser aproveitado nos termos do art. 23 da LC 123 (Simples Nacional) (v2.0)
     /// </summary>
     [XmlIgnore]
-    public UnidadeFederativa UnidadeFederativa {
-      get { return _UFST; }
-      set { _UFST = value; }
+    public decimal Valor {
+      get { return _vCredICMSSN; }
+      set { _vCredICMSSN = value; }
     }
     #endregion
     #region Construtores
-    public ICMSPart() {
+    public ICMSSN900() {
 
     }
     #endregion

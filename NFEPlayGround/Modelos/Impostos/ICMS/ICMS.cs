@@ -21,6 +21,17 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     private ICMS70 _ICMS70;
     private ICMS90 _ICMS90;
     private ICMSPart _ICMSPart;
+    private ICMSST _ICMSST;
+
+    #region Simples Nacional
+    private ICMSSN101 _ICMSSN101;
+    private ICMSSN102 _ICMSSN102;
+    private ICMSSN201 _ICMSSN201;
+    private ICMSSN202 _ICMSSN202;
+    private ICMSSN500 _ICMSSN500;
+    private ICMSSN900 _ICMSSN900;
+    #endregion
+
     #endregion
     #region Propriedades do XML
     [XmlElement("ICMS00")]
@@ -42,6 +53,41 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     public ICMS30 xml_ICMS30 {
       get { return _ICMS30; }
       set { _ICMS30 = value; }
+    }
+    [XmlElement("ICMS40")]
+    public ICMS40 xml_ICMS40 {
+      get { return _ICMS40; }
+      set { _ICMS40 = value; }
+    }
+    [XmlElement("ICMS51")]
+    public ICMS51 xml_ICMS51 {
+      get { return _ICMS51; }
+      set { _ICMS51 = value; }
+    }
+    [XmlElement("ICMS60")]
+    public ICMS60 xml_ICMS60 {
+      get { return _ICMS60; }
+      set { _ICMS60 = value; }
+    }
+    [XmlElement("ICMS70")]
+    public ICMS70 xml_ICMS70 {
+      get { return _ICMS70; }
+      set { _ICMS70 = value; }
+    }
+    [XmlElement("ICMS90")]
+    public ICMS90 xml_ICMS90 {
+      get { return _ICMS90; }
+      set { _ICMS90 = value; }
+    }
+    [XmlElement("ICMSPart")]
+    public ICMSPart xml_ICMSPart {
+      get { return _ICMSPart; }
+      set { _ICMSPart = value; }
+    }
+    [XmlElement("ICMSST")]
+    public ICMSST xml_ICMSST {
+      get { return _ICMSST; }
+      set { _ICMSST = value; }
     }
     #endregion
     #region Propriedades do usuario
@@ -92,6 +138,49 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     public ICMS51 ICMS51 {
       get { return _ICMS51; }
       set { _ICMS51 = value; }
+    }
+    /// <summary>
+    /// Tributação pelo ICMS60 - ICMS cobrado anteriormente por substituição tributária
+    /// </summary>
+    [XmlIgnore]
+    public ICMS60 ICMS60 {
+      get { return _ICMS60; }
+      set { _ICMS60 = value; }
+    }
+    /// <summary>
+    /// Tributação pelo ICMS70 - Com redução de base de cálculo e cobrança do ICMS por substituição tributária
+    /// </summary>
+    [XmlIgnore]
+    public ICMS70 ICMS70 {
+      get { return _ICMS70; }
+      set { _ICMS70 = value; }
+    }
+    /// <summary>
+    /// Tributação pelo Tributação pelo ICMS90 - Outras
+    /// </summary>
+    [XmlIgnore]
+    public ICMS90 ICMS90 {
+      get { return _ICMS90; }
+      set { _ICMS90 = value; }
+    }
+    /// <summary>
+    /// Partilha do ICMS entre a UF de origem e UF de destino ou a UF definida na legislação
+    /// <para>Operação interestadual para consumidor final com partilha do ICMS devido na 
+    /// operação entre a UF de origem e a UF do destinatário ou ou a UF definida na legislação. 
+    /// (Ex.UF da concessionária de entrega do  veículos)</para>
+    /// </summary>
+    [XmlIgnore]
+    public ICMSPart ICMSPart {
+      get { return _ICMSPart; }
+      set { _ICMSPart = value; }
+    }
+    /// <summary>
+    /// Grupo de informação do ICMSST devido para a UF de destino, nas operações interestaduais de produtos que tiveram retenção antecipada de ICMS por ST na UF do remetente. Repasse via Substituto Tributário.
+    /// </summary>
+    [XmlIgnore]
+    public ICMSST ICMSST {
+      get { return _ICMSST; }
+      set { _ICMSST = value; }
     }
     #endregion
     #region Construtores

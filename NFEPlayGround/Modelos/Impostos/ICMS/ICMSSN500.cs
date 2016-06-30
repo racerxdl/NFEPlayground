@@ -6,13 +6,13 @@ using System.Xml.Serialization;
 
 namespace NFEPlayGround.Modelos.Impostos.ICMS {
   /// <summary>
-  /// Tributação pelo ICMS60 - ICMS cobrado anteriormente por substituição tributária
+  /// Tributação do ICMS pelo SIMPLES NACIONAL,CRT=1 – Simples Nacional e CSOSN=500 (v.2.0)
   /// </summary>
   [NFEData, Serializable]
-  public class ICMS60 {
+  public class ICMSSN500 {
     #region Internos
     private Origem _orig;
-    private string _CST = "60";
+    private string _CSOSN = "500";
     private decimal _vBCSTRet; // 13i 2d
     private decimal _vICMSSTRet; // 13i 2d
     #endregion
@@ -22,10 +22,10 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
       get { return (int)_orig; }
       set { _orig = (Origem)value; }
     }
-    [XmlElement("CST")]
-    public string xml_CST {
-      get { return _CST; }
-      set { _CST = value; }
+    [XmlElement("CSOSN")]
+    public string xml_CSOSN {
+      get { return _CSOSN; }
+      set { _CSOSN = value; }
     }
     [XmlElement("vBCSTRet")]
     public string xml_vBCSTRet {
@@ -48,14 +48,6 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
       set { _orig = value; }
     }
     /// <summary>
-    /// Código de Substituição Tributária
-    /// </summary>
-    [XmlIgnore]
-    public string CST {
-      get { return _CST; }
-      set { _CST = value; }
-    }
-    /// <summary>
     /// Valor da BC do ICMS ST retido anteriormente
     /// </summary>
     [XmlIgnore]
@@ -73,7 +65,7 @@ namespace NFEPlayGround.Modelos.Impostos.ICMS {
     }
     #endregion
     #region Construtores
-    public ICMS60() {
+    public ICMSSN500() {
 
     }
     #endregion
